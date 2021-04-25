@@ -1,9 +1,9 @@
+<ol class="breadcrumb shadow-sm">
+    <li class="breadcrumb-item"><a href=<%= products_path %>>Домой</a></li>
+    <li class="breadcrumb-item active"><%= @category.name %></li>
+</ol>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="row">
+  <%= render partial: 'subcategories/subcategory', collection: @category.subcategories %>
+</div>

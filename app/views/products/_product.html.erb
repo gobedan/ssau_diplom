@@ -1,0 +1,11 @@
+<div class="col-4">
+  <div class="card">
+    <a href= <%= product_path(product) %> >
+    <img class="card-img-top" src=<%= product.picture_url || asset_path("product_cards/#{product.id}.jpg")   %> >
+    <div class="card-body">
+      <h5 class="card-title"><%= product.name %></h5>
+      <h6 class="card-subtitle mb-2 "><%= product.price %> руб.</h6>
+    </div>
+  </a>
+  </div>
+</div>

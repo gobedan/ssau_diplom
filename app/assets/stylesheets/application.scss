@@ -10,6 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+.nav {
+  height: 3em;
+}
+.logo {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.card-img-top {
+  height: 15vw;
+}

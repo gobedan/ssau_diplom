@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SsauDiplom</title>
+    <title>Valentin Markin 6596</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,63 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row fs-6 fw-bolder bg-success">
+        <div class="col-8">
+        </div>
+        <div class="col-2">
+          Samara
+        </div>
+        <div class="col-2">
+          8-800-88-88-222
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="nav row font-monospace fs-5 fw-bolder bg-light lh-bg align-items-center">
+        <div class="col-1 h-100">
+          <img class="logo" src=<%= asset_path("logo.png") %> />
+        </div>
+        <div class="col-4 px-3">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Поиск</button>
+          </form>
+        </div>
+        <div class="col-1"> </div>
+        <div class="col-2 border-end">
+          Доставка
+        </div>
+        <div class="col-2 border-end">
+          Избранное
+        </div>
+        <div class="col-2">
+          Корзина
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3 shadow-lg p-3 mb-5 bg-light rounded">
+          <p class="fs-4">Каталог</p>
+          <% Category.all.each do |category| %>
+            <p>
+              <%= category.name %>
+            </p>
+            <ul>
+              <% category.subcategories.each do |subcategory| %>
+                <li>
+                  <%= link_to(subcategory.name, subcategory_path(subcategory)) %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+        <div class="col-8">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

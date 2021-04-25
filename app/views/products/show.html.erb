@@ -1,19 +1,22 @@
+<ol class="breadcrumb shadow-sm">
+    <li class="breadcrumb-item"><a href=<%= @products_path %>>Домой</a></li>
+    <li class="breadcrumb-item"><a href=<%= category_path(@product.subcategory.category) %>><%= @product.subcategory.category.name %></a></li>
+    <li class="breadcrumb-item"><a href=<%= subcategory_path(@product.subcategory) %>><%= @product.subcategory.name %></a></li>
+    <li class="breadcrumb-item active"><%= @product.name %></li>
+</ol>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h3>
   <%= @product.name %>
-</p>
+</h3>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Цена:</strong>
   <%= @product.price %>
 </p>
+<img class="" src=<%= @product.picture_url || asset_path("product_cards/#{@product.id}.jpg")   %> >
 
-<p>
-  <strong>Subcategory:</strong>
-  <%= @product.subcategory_id %>
-</p>
+
 
 <div class="specs">
   <h2>Характеристики:</h2>
