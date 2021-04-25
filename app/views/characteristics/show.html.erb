@@ -7,12 +7,12 @@
 
 <p>
   <strong>Measure unit:</strong>
-  <%= @characteristic.measure_unit_id %>
+  <%= @characteristic.measure_unit.name %>
 </p>
 
 <p>
   <strong>Subcategory:</strong>
-  <%= @characteristic.subcategory_id %>
+  <%= @characteristic.subcategory.name %>
 </p>
 
 <%= link_to 'Edit', edit_characteristic_path(@characteristic) %> |

@@ -11,14 +11,19 @@
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
   <strong>Subcategory:</strong>
   <%= @product.subcategory_id %>
 </p>
+
+<div class="specs">
+  <h2>Характеристики:</h2>
+    <% @product.characteristics_products.each do |spec| %>
+      <%= spec.characteristic.name %>: 
+      <%= spec.value %> 
+      <%= spec.characteristic.measure_unit.name %>
+      <br />
+    <% end %>
+</div>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

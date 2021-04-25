@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Characteristics Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Char.</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @characteristics_products.each do |characteristics_product| %>
+      <tr>
+        <td><%= characteristics_product.product.name %></td>
+        <td><%= characteristics_product.characteristic.name %></td>
+        <td><%= characteristics_product.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Characteristics Product', new_characteristics_product_path %>

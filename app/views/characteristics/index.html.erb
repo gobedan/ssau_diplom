@@ -16,8 +16,8 @@
     <% @characteristics.each do |characteristic| %>
       <tr>
         <td><%= characteristic.name %></td>
-        <td><%= characteristic.measure_unit_id %></td>
-        <td><%= characteristic.subcategory_id %></td>
+        <td><%= characteristic.measure_unit.name %></td>
+        <td><%= characteristic.subcategory.name %></td>
         <td><%= link_to 'Show', characteristic %></td>
         <td><%= link_to 'Edit', edit_characteristic_path(characteristic) %></td>
         <td><%= link_to 'Destroy', characteristic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
