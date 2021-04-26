@@ -10,12 +10,13 @@
   <%= @product.name %>
 </h3>
 
+<img class="" src=<%= @product.picture_url || asset_path("product_cards/#{@product.id}.jpg")   %> >
 <p>
   <strong>Цена:</strong>
   <%= @product.price %>
 </p>
-<img class="" src=<%= @product.picture_url || asset_path("product_cards/#{@product.id}.jpg")   %> >
-
+<button type="button" class="btn btn-success">Добавить в корзину</button>
+<button type="button" class="btn btn-outline-success">Купить в 1 клик</button>
 
 
 <div class="specs">
@@ -27,6 +28,3 @@
       <br />
     <% end %>
 </div>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
