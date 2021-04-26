@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_165749) do
+ActiveRecord::Schema.define(version: 2021_04_26_062257) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 2021_04_25_165749) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "orders_products", id: false, force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 8, scale: 2
@@ -58,8 +70,20 @@ ActiveRecord::Schema.define(version: 2021_04_25_165749) do
     t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "login"
+    t.string "password"
+    t.string "email"
+    t.string "address"
+    t.integer "zipcode"
+    t.bigint "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "characteristics", "measure_units"
   add_foreign_key "characteristics", "subcategories"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "subcategories"
   add_foreign_key "subcategories", "categories"
 end
