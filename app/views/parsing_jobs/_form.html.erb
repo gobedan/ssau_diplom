@@ -1,0 +1,57 @@
+<%= form_with(model: parsing_job) do |form| %>
+  <% if parsing_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parsing_job.errors.count, "error") %> prohibited this parsing_job from being saved:</h2>
+
+      <ul>
+        <% parsing_job.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :target_category %>
+    <%= form.text_field :target_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :target_site %>
+    <%= form.text_field :target_site %>
+  </div>
+
+  <div class="field">
+    <%= form.label :catalog_url %>
+    <%= form.text_field :catalog_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_selector %>
+    <%= form.text_field :product_selector %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title_selector %>
+    <%= form.text_field :title_selector %>
+  </div> 
+
+  <div class="field">
+    <%= form.label :price_selector %>
+    <%= form.text_field :price_selector %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_selector %>
+    <%= form.text_field :image_selector %>
+  </div>
+
+  <div class="field">
+    <%= form.label :characteristics_selector %>
+    <%= form.text_field :characteristics_selector %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

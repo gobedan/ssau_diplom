@@ -1,0 +1,2 @@
+class ParsingJob < ApplicationRecord
+end

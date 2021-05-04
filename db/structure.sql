@@ -30,6 +30,7 @@ FOREIGN KEY ("user_id")
 );
 CREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id");
 CREATE TABLE IF NOT EXISTS "orders_products" ("order_id" integer NOT NULL, "product_id" integer NOT NULL);
+CREATE TABLE IF NOT EXISTS "parsing_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL);
 INSERT INTO "schema_migrations" (version) VALUES
 ('20210425071557'),
 ('20210425071617'),
@@ -40,6 +41,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210425165749'),
 ('20210426061814'),
 ('20210426062130'),
-('20210426062257');
+('20210426062257'),
+('20210504084538');
 
 
