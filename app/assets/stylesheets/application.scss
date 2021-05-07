@@ -24,3 +24,21 @@
 .card-img-top {
   height: 15vw;
 }
+
+.field {
+  margin: 5px;
+  padding: 5px;
+}
+
+.actions > input {
+  @extend .btn;
+  @extend .btn-success;
+}
+
+form {
+  font-size: 0.85em;
+}
+
+td {
+  @extend .p-2;
+}

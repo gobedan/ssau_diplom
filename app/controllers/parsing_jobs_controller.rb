@@ -6,6 +6,7 @@ class ParsingJobsController < ApplicationController
   end 
 
   def new
+    @parsing_jobs = ParsingJob.all
     @parsing_job = ParsingJob.new()
   end
 

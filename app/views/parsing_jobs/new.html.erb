@@ -1,3 +1,34 @@
-<h1>New parsing job</h1>
+<ol class="breadcrumb shadow-sm">
+    <li class="breadcrumb-item"><a href=<%= %>> Админка</a></li>
+    <li class="breadcrumb-item active"><%= %> Парсинг</li>
+</ol>
 
-<%= render 'form', parsing_job: @parsing_job %>
+<div class='row justify-content-center'>
+  <div class='col-3'>
+    <h4>New parsing job settings</h4>
+    <%= render 'form', parsing_job: @parsing_job %>
+  </div>
+
+  <div class='col-7'>
+    <h4>Task log</h4>
+    <table class='table'>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Created</td>
+          <td>Status</td>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @parsing_jobs.reverse.each do |job| %>
+          <tr>
+            <td><%= job.id %></td>
+            <td><%= job.created_at %></td>
+            <td><%= job.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

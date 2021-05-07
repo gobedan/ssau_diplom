@@ -11,48 +11,51 @@
     </div>
   <% end %>
 
-  <select name="parsing_job[subcategory_id]" id="parsing_job_subcategory">
-    <% Subcategory.all.each do |subcat| %>
-      <option value="<%= subcat.id %>"><%= subcat.name %></option>
-    <% end %>
-  </select>
-
   <div class="field">
-    <%= form.label :target_site %>
-    <%= form.text_field :target_site %>
+    <%= form.label :subcategory, class: 'form-label' %>
+    <select name="parsing_job[subcategory_id]" id="parsing_job_subcategory" class="form-select">
+      <% Subcategory.all.each do |subcat| %>
+        <option value="<%= subcat.id %>"><%= subcat.name %></option>
+      <% end %>
+    </select>
   </div>
 
   <div class="field">
-    <%= form.label :catalog_url %>
-    <%= form.text_field :catalog_url %>
+    <%= form.label :target_site, class: 'form-label' %>
+    <%= form.text_field :target_site, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :product_selector %>
-    <%= form.text_field :product_selector %>
+    <%= form.label :catalog_url, class: 'form-label' %>
+    <%= form.text_field :catalog_url, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :title_selector %>
-    <%= form.text_field :title_selector %>
+    <%= form.label :product_selector, class: 'form-label' %>
+    <%= form.text_field :product_selector, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title_selector, class: 'form-label' %>
+    <%= form.text_field :title_selector, class: 'form-control' %>
   </div> 
 
   <div class="field">
-    <%= form.label :price_selector %>
-    <%= form.text_field :price_selector %>
+    <%= form.label :price_selector, class: 'form-label' %>
+    <%= form.text_field :price_selector, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :image_selector %>
-    <%= form.text_field :image_selector %>
+    <%= form.label :image_selector, class: 'form-label' %>
+    <%= form.text_field :image_selector, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :characteristics_selector %>
-    <%= form.text_field :characteristics_selector %>
+    <%= form.label :characteristics_selector, class: 'form-label' %>
+    <%= form.text_field :characteristics_selector, class: 'form-control' %>
   </div>
 
-  <div class="actions">
+  <div class="actions btn ">
     <%= form.submit %>
   </div>
 <% end %>

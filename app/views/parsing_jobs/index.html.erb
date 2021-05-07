@@ -8,7 +8,7 @@
   </thead>
   
   <tbody>
-    <% @parsing_jobs.each do |job| %>
+    <% @parsing_jobs.reverse!.each do |job| %>
       <tr>
         <td><%= job.id %></td>
         <td><%= job.created_at %></td>
@@ -16,3 +16,4 @@
       </tr>
     <% end %>
   </tbody>
+</table>
