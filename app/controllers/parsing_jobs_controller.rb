@@ -12,9 +12,8 @@ class ParsingJobsController < ApplicationController
   def create
     @parsing_job = ParsingJob.new(parsing_job_params)
     @parsing_job.status = 'Queued'
-    console.log(@parsing_job)
     if @parsing_job.save 
-      ParserJob.perform(@parsing_job)
+      ParserJob.perform_later(@parsing_job)
       render :new, status: :created
     else
       render :new, status: :unprocessable_entity
@@ -30,7 +29,7 @@ class ParsingJobsController < ApplicationController
                                           :price_selector,
                                           :image_selector,
                                           :characteristics_selector,
-                                          :target_category)
+                                          :subcategory_id)
 
     end
 end

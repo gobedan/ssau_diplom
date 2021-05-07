@@ -30,7 +30,11 @@ FOREIGN KEY ("user_id")
 );
 CREATE INDEX "index_orders_on_user_id" ON "orders" ("user_id");
 CREATE TABLE IF NOT EXISTS "orders_products" ("order_id" integer NOT NULL, "product_id" integer NOT NULL);
-CREATE TABLE IF NOT EXISTS "parsing_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL);
+CREATE TABLE IF NOT EXISTS "parsing_jobs" ("id" integer NOT NULL PRIMARY KEY, "status" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "subcategory_id" integer DEFAULT NULL, "target_site" varchar, "catalog_url" varchar, "product_selector" varchar, "title_selector" varchar, "price_selector" varchar, "image_selector" varchar, "characteristics_selector" varchar, CONSTRAINT "fk_rails_42d8cba53a"
+FOREIGN KEY ("subcategory_id")
+  REFERENCES "subcategories" ("id")
+);
+CREATE INDEX "index_parsing_jobs_on_subcategory_id" ON "parsing_jobs" ("subcategory_id");
 INSERT INTO "schema_migrations" (version) VALUES
 ('20210425071557'),
 ('20210425071617'),
@@ -42,6 +46,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210426061814'),
 ('20210426062130'),
 ('20210426062257'),
-('20210504084538');
+('20210504084538'),
+('20210504185356');
 
 
